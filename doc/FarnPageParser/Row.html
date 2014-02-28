@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class FarnPageParser::Row - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>farn_page_parser.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-parse_row">#parse_row</a>
+    
+    <li><a href="#method-i-to_hash">#to_hash</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../FarnPageParser.html">FarnPageParser</a>
+  
+    <li><a href="../FarnPageParser/QPrice.html">FarnPageParser::QPrice</a>
+  
+    <li><a href="../FarnPageParser/Row.html">FarnPageParser::Row</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class FarnPageParser::Row</h1>
+
+  <div id="description" class="description">
+    
+<p>class <a href="Row.html">Row</a> Parse and store one row from the farn
+results table. Relevant sections begin with a <code>tr</code> column_name_
+<em>data</em> <em>n</em>, e.g. manuf_data_04. The headings for properties
+is stored in the containing <a
+href="../FarnPageParser.html">FarnPageParser</a>, not in the <a
+href="Row.html">Row</a>.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-brand_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">brand_name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Manufacturer’s brand name.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-description" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">description</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Description of this part, e.g. ‘resistor, carbon comp’.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-manufacturer_part_no" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">manufacturer_part_no</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Manufacturer’s part number.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-prices" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">prices</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>An array of <a href="QPrice.html">QPrice</a> to store the
+price-per-quantity for this part.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-properties" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">properties</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Extended properties for this part, e.g. resisitance, power rating.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-supplier_part_no" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">supplier_part_no</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Farn’s order code for this part.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-weblink" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">weblink</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Link to Farn’s page for this part.</p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a new <a href="Row.html">Row</a>, properties and prices are empty
+arrays, other instance variables are set to ‘empty’.</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@properties</span> = []
+  <span class="ruby-ivar">@prices</span> = []
+  <span class="ruby-ivar">@manufacturer_part_no</span> = <span class="ruby-string">'empty'</span>
+  <span class="ruby-ivar">@brand_name</span> = <span class="ruby-string">'empty'</span>
+  <span class="ruby-ivar">@description</span> = <span class="ruby-string">'empty'</span>
+  <span class="ruby-ivar">@weblink</span> = <span class="ruby-string">'empty'</span>
+  <span class="ruby-ivar">@supplier_part_no</span> = <span class="ruby-string">'empty'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-parse_row" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_row</span><span
+            class="method-args">(r)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Populates the instance variables b extracting information from each row.</p>
+          
+
+          
+          <div class="method-source-code" id="parse_row-source">
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_row</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-identifier">parse_manufacturer_data</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-identifier">parse_part_data</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-identifier">parse_description_data</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-identifier">parse_price_data</span>(<span class="ruby-identifier">r</span>)
+  <span class="ruby-identifier">parse_parametrics_data</span>(<span class="ruby-identifier">r</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_row-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_row-method -->
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">(prop_headings)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a hash of all the information for this row. By passing the
+properties_headings from the containing <a
+href="../FarnPageParser.html">FarnPageParser</a>, the returned hash will
+include a hash of properties indexed by the relevant heading.</p>
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">prop_headings</span>)
+  <span class="ruby-identifier">h</span> = {
+    <span class="ruby-identifier">manufacturer_part_no</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@manufacturer_part_no</span>,
+    <span class="ruby-identifier">supplier_part_no</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@supplier_part_no</span>,
+    <span class="ruby-identifier">brand_name</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@brand_name</span>,
+    <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@description</span>,
+    <span class="ruby-identifier">weblink</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@weblink</span>
+  }
+  <span class="ruby-identifier">h</span>[<span class="ruby-value">:properties</span>] = <span class="ruby-identifier">properties_to_hash</span>(<span class="ruby-identifier">prop_headings</span>)
+  <span class="ruby-identifier">h</span>[<span class="ruby-value">:prices</span>] = <span class="ruby-identifier">prices_to_hash</span>
+  <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_hash-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string of all the information for this row. It does not include
+the property_headings, which are found in the containing <a
+href="../FarnPageParser.html">FarnPageParser</a> as this would result in a
+need to pass an argument to <a href="Row.html#method-i-to_s">#to_s</a>,
+possibly go against convention.</p>
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-node">&quot;Supplier part no: #{@supplier_part_no}&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Manufacturer part no: #{@manufacturer_part_no}&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Brand name: #{@brand_name}&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Description: #{@description}&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-node">&quot;Suppliers web page: #{@weblink}&quot;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-string">'Properties: '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@properties</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">'; '</span>) <span class="ruby-operator">+</span>
+  <span class="ruby-string">'Prices: '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@prices</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">'; '</span>)
+  <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

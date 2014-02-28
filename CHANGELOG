@@ -1,3 +1,20 @@
-2013-04-19
+# 2013-04-19
 cloned https://github.com/paleo9/farn.git
 creating this changelog, will then attempt to send upstream
+
+# 2014-02-28
+Complete rewrite. The result is a single class with two private nested classes
+that can output a string and a hash. The hash is then to be used as a basis for
+conversion to json, using the JSON gem.
+* Deleted all existing ruby files, leaving only README.md and CHANGELOG.
+
+## About farn_page_parser.rb 
+  * the only ruby class required. 
+  * includes rdoc for 100% documentation
+  * passes rubocop tests
+  * works on rows, the original version worked on columns. This was easier to 
+    get working, but difficult to work with.
+  * produces hash for use with json and mongodb 
+  * fast and efficient
+  * many more lines of code, but easier to follow
+
