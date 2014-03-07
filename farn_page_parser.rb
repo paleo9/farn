@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'json'
+
 # Extract useful information from a page resulting from performing save-as on a
 # query at Farnell. It can be retreived as a hash (to_hash) or a string (to_s).
 
@@ -60,6 +62,11 @@ class FarnPageParser
       hash[:rows] << r.to_hash(@properties_headings)
     end
     hash
+  end
+
+# Returns a Json representation
+  def to_json
+    to_hash.to_json
   end
 
   private
@@ -162,6 +169,8 @@ class FarnPageParser
       s
     end
 
+=begin
+# unaltered
 # Returns a hash of all the information for this row. By passing the
 # properties_headings from the containing FarnPageParser, the returned hash
 # will include a hash of properties indexed by the relevant heading.
@@ -175,6 +184,24 @@ class FarnPageParser
       }
       h[:properties] = properties_to_hash(prop_headings)
       h[:prices] = prices_to_hash
+      h
+    end
+=end
+
+# altered
+# Returns a hash of all the information for this row. By passing the
+# properties_headings from the containing FarnPageParser, the returned hash
+# will include a hash of properties indexed by the relevant heading.
+    def to_hash(prop_headings)
+      h = {
+        manufacturer_part_no: @manufacturer_part_no,
+        supplier_part_no: @supplier_part_no,
+        brand_name: @brand_name,
+        description: @description,
+        weblink: @weblink,
+      }
+      h[:properties] = properties_to_hash_array(prop_headings)
+      h[:prices] = prices_to_hash_array
       h
     end
 
@@ -226,20 +253,35 @@ class FarnPageParser
       props.each { |p| @properties << p[0] }
     end
 
+=begin
+unaltered
 # Creates a hash from the @properties array
     def properties_to_hash(prop_headings)
       hash = {}
       @properties.each_with_index { |p, i| hash[prop_headings[i]] = p.to_s }
       hash
     end
+unaltered
+=end
+
+# Creates a hash array from the @properties array
+    def properties_to_hash_array(prop_headings)
+      hash = []
+      @properties.each_with_index do |p, i| 
+        h = {}
+        h[prop_headings[i]] = p.to_s
+        hash << h
+      end
+      hash
+    end
 
 # Creates a hash from the @prices array
-    def prices_to_hash
+    def prices_to_hash_array
       prs = []
       prices.each { |p| prs << p.to_hash }
       prs
     end
-  end
+end # of class Row
 
 # class QPrice
 # stores a price-per-quantity for bulk orders.
