@@ -169,8 +169,6 @@ class FarnPageParser
       s
     end
 
-=begin
-# unaltered
 # Returns a hash of all the information for this row. By passing the
 # properties_headings from the containing FarnPageParser, the returned hash
 # will include a hash of properties indexed by the relevant heading.
@@ -181,24 +179,6 @@ class FarnPageParser
         brand_name: @brand_name,
         description: @description,
         weblink: @weblink
-      }
-      h[:properties] = properties_to_hash(prop_headings)
-      h[:prices] = prices_to_hash
-      h
-    end
-=end
-
-# altered
-# Returns a hash of all the information for this row. By passing the
-# properties_headings from the containing FarnPageParser, the returned hash
-# will include a hash of properties indexed by the relevant heading.
-    def to_hash(prop_headings)
-      h = {
-        manufacturer_part_no: @manufacturer_part_no,
-        supplier_part_no: @supplier_part_no,
-        brand_name: @brand_name,
-        description: @description,
-        weblink: @weblink,
       }
       h[:properties] = properties_to_hash_array(prop_headings)
       h[:prices] = prices_to_hash_array
@@ -253,26 +233,15 @@ class FarnPageParser
       props.each { |p| @properties << p[0] }
     end
 
-=begin
-unaltered
-# Creates a hash from the @properties array
-    def properties_to_hash(prop_headings)
-      hash = {}
-      @properties.each_with_index { |p, i| hash[prop_headings[i]] = p.to_s }
-      hash
-    end
-unaltered
-=end
-
 # Creates a hash array from the @properties array
     def properties_to_hash_array(prop_headings)
-      hash = []
-      @properties.each_with_index do |p, i| 
+      hash_array = []
+      @properties.each_with_index do |p, i|
         h = {}
         h[prop_headings[i]] = p.to_s
-        hash << h
+        hash_array << h
       end
-      hash
+      hash_array
     end
 
 # Creates a hash from the @prices array
@@ -281,7 +250,7 @@ unaltered
       prices.each { |p| prs << p.to_hash }
       prs
     end
-end # of class Row
+  end # of class Row
 
 # class QPrice
 # stores a price-per-quantity for bulk orders.

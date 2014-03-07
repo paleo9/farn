@@ -76,6 +76,8 @@
     
     <li><a href="#method-i-to_hash">#to_hash</a>
     
+    <li><a href="#method-i-to_json">#to_json</a>
+    
     <li><a href="#method-i-to_s">#to_s</a>
     
   </ul>
@@ -225,7 +227,7 @@ headings.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 29</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@rows</span> = []
   <span class="ruby-ivar">@headings</span> = [<span class="ruby-string">'Order code'</span>, <span class="ruby-string">'PDF'</span>, <span class="ruby-string">'Web page'</span>, <span class="ruby-string">'Manufacturer code'</span>]
@@ -264,7 +266,7 @@ page to be parsed.</p>
 
           
           <div class="method-source-code" id="parse_file-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 37</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_file</span>(<span class="ruby-identifier">filename</span>)
   <span class="ruby-identifier">page</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">'r'</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">tr!</span>(<span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-string">''</span>)
   <span class="ruby-identifier">parse_query_date</span>(<span class="ruby-identifier">page</span>)
@@ -298,7 +300,7 @@ page to be parsed.</p>
 
           
           <div class="method-source-code" id="to_hash-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 55</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
   <span class="ruby-identifier">hash</span> = { <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@name</span>, <span class="ruby-identifier">query_date</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@query_date</span> }
   <span class="ruby-identifier">hash</span>[<span class="ruby-value">:rows</span>] = []
@@ -317,6 +319,36 @@ page to be parsed.</p>
       </div><!-- to_hash-method -->
 
     
+      <div id="method-i-to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_json</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a Json representation</p>
+          
+
+          
+          <div class="method-source-code" id="to_json-source">
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_json</span>
+  <span class="ruby-identifier">to_hash</span>.<span class="ruby-identifier">to_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_json-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_json-method -->
+
+    
       <div id="method-i-to_s" class="method-detail ">
         
         <div class="method-heading">
@@ -333,7 +365,7 @@ page to be parsed.</p>
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 46</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-identifier">s</span> = <span class="ruby-node">&quot;Name: #{@name} Query date: #{query_date} Headings: &quot;</span>
   <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">headings</span>.<span class="ruby-identifier">to_s</span>

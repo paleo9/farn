@@ -192,7 +192,7 @@ orders.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 256</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 267</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@quantity</span>, <span class="ruby-ivar">@pounds</span>, <span class="ruby-ivar">@pence</span> = <span class="ruby-value">0</span>
 <span class="ruby-keyword">end</span></pre>
@@ -231,7 +231,7 @@ decimal places.</p>
 
           
           <div class="method-source-code" id="parse-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 264</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 275</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">p</span>)
   <span class="ruby-identifier">pattern</span> = <span class="ruby-regexp">/(?'qty'\d{1,})\+.*?£(?'pounds'\d{1,})\.(?'pence'\d{1,})/</span>
   <span class="ruby-identifier">m</span> = <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">match</span> <span class="ruby-identifier">p</span>
@@ -266,7 +266,7 @@ href="QPrice.html#method-i-to_hash">#to_hash</a> method.</p>
 
           
           <div class="method-source-code" id="to_hash-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 278</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 289</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
   { <span class="ruby-identifier">quantity</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@quantity</span>, <span class="ruby-identifier">pounds</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@pounds</span>, <span class="ruby-identifier">pence</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@pence</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -296,7 +296,7 @@ href="QPrice.html#method-i-to_hash">#to_hash</a> method.</p>
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 273</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 284</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-node">&quot;Quantity: #{quantity}; Price: £#{pounds}.#{pence}&quot;</span>
 <span class="ruby-keyword">end</span></pre>

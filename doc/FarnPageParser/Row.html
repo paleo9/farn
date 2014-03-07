@@ -250,7 +250,7 @@ arrays, other instance variables are set to ‘empty’.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 130</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 137</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@properties</span> = []
   <span class="ruby-ivar">@prices</span> = []
@@ -292,7 +292,7 @@ arrays, other instance variables are set to ‘empty’.</p>
 
           
           <div class="method-source-code" id="parse_row-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 141</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 148</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_row</span>(<span class="ruby-identifier">r</span>)
   <span class="ruby-identifier">parse_manufacturer_data</span>(<span class="ruby-identifier">r</span>)
   <span class="ruby-identifier">parse_part_data</span>(<span class="ruby-identifier">r</span>)
@@ -329,7 +329,7 @@ include a hash of properties indexed by the relevant heading.</p>
 
           
           <div class="method-source-code" id="to_hash-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 167</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 174</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">prop_headings</span>)
   <span class="ruby-identifier">h</span> = {
     <span class="ruby-identifier">manufacturer_part_no</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@manufacturer_part_no</span>,
@@ -338,8 +338,8 @@ include a hash of properties indexed by the relevant heading.</p>
     <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@description</span>,
     <span class="ruby-identifier">weblink</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@weblink</span>
   }
-  <span class="ruby-identifier">h</span>[<span class="ruby-value">:properties</span>] = <span class="ruby-identifier">properties_to_hash</span>(<span class="ruby-identifier">prop_headings</span>)
-  <span class="ruby-identifier">h</span>[<span class="ruby-value">:prices</span>] = <span class="ruby-identifier">prices_to_hash</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-value">:properties</span>] = <span class="ruby-identifier">properties_to_hash_array</span>(<span class="ruby-identifier">prop_headings</span>)
+  <span class="ruby-identifier">h</span>[<span class="ruby-value">:prices</span>] = <span class="ruby-identifier">prices_to_hash_array</span>
   <span class="ruby-identifier">h</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- to_hash-source -->
@@ -372,7 +372,7 @@ possibly go against convention.</p>
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 153</span>
+            <pre><span class="ruby-comment"># File farn_page_parser.rb, line 160</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-identifier">s</span> = <span class="ruby-node">&quot;Supplier part no: #{@supplier_part_no}&quot;</span> <span class="ruby-operator">+</span>
   <span class="ruby-node">&quot;Manufacturer part no: #{@manufacturer_part_no}&quot;</span> <span class="ruby-operator">+</span>
