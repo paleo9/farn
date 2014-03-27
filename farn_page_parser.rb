@@ -4,6 +4,10 @@ require 'json'
 
 # Extract useful information from a page resulting from performing save-as on a
 # query at Farnell. It can be retreived as a hash (to_hash) or a string (to_s).
+#
+# USAGE: Create a new FarnPageParser. Then use #parse_file(filename).
+# Results can be obtained via  #to_s, #to_hash or #to_json. Redirecting 
+# to an output file if preferred (recommended as the output an be quite long).
 
 # Class FarnPageParser
 # Parses and stores the information from the resulting page of a
