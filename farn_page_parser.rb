@@ -34,6 +34,8 @@ class FarnPageParser
 # Returns a new FarnPageParser. @rows and @properties_headings are empty
 # arrays; @headings are populated with the four unchanging column headings.
   def initialize
+    @name = ''
+    query_data = ''
     @rows = []
     @headings = ['Order code', 'PDF', 'Web page', 'Manufacturer code']
     @properties_headings = []
@@ -42,13 +44,23 @@ class FarnPageParser
 # Populates the attributes using the supplied file.
 # filename: The saved web page to be parsed.
   def parse_file(filename)
+    initialize
     page = File.open(filename, 'r').read.tr!("\n", '')
     parse_query_date(page)
     parse_name(page)
     parse_properties_headings(page)
     parse_table_rows(page)
+    warn_if_any_page_field_is_empty
+    rows.each {|row| row.warn_if_any_row_field_is_empty}
   end
 
+# Warns if any page field is empty
+  def warn_if_any_page_field_is_empty
+    warn 'name is empty' if name == ''
+    warn 'query_data is empty' if query_date == ''
+    warn 'rows is empty' if rows == []
+  end
+   
 # Returns a string of the all attributes.
   def to_s
     s = "Name: #{@name} Query date: #{query_date} Headings: "
@@ -142,14 +154,14 @@ class FarnPageParser
     def initialize
       @properties = []
       @prices = []
-      @manufacturer_part_no = 'empty'
-      @brand_name = 'empty'
-      @description = 'empty'
-      @weblink = 'empty'
-      @supplier_part_no = 'empty'
+      @manufacturer_part_no = ''
+      @brand_name = ''
+      @description = ''
+      @weblink = ''
+      @supplier_part_no = ''
     end
 
-# Populates the instance variables b extracting information from each row.
+# Populates the instance variables by extracting information from each row.
     def parse_row(r)
       parse_manufacturer_data(r)
       parse_part_data(r)
@@ -157,6 +169,17 @@ class FarnPageParser
       parse_price_data(r)
       parse_parametrics_data(r)
     end
+
+# Warns if any field is unfilled.
+def warn_if_any_row_field_is_empty
+    warn 'manufacturer_part_no is empty' if manufacturer_part_no == ''
+    warn 'brand_name is empty' if brand_name == ''
+    warn 'description is empty' if description == ''
+    warn 'properties is empty' if properties == []
+    warn 'weblink is empty' if weblink == ''
+    warn 'supplier_part_no is empty' if supplier_part_no == ''
+    warn 'prices is empty' if prices == []
+end
 
 # Returns a string of all the information for this row.
 # It does not include the property_headings, which are found in the
@@ -279,10 +302,13 @@ class FarnPageParser
 # decimal places.
     def parse(p)
       pattern = /(?'qty'\d{1,})\+.*?£(?'pounds'\d{1,})\.(?'pence'\d{1,})/
-      m = pattern.match p
-      @quantity = m[:qty].to_i
-      @pounds = m[:pounds].to_i
-      @pence = m[:pence].to_i
+      if (m = pattern.match p)
+        @quantity = m[:qty].to_i
+        @pounds = m[:pounds].to_i
+        @pence = m[:pence].to_i
+      else
+        warn 'pattern not found for price in Price#parse'
+      end
     end
 
 # Returns an informative string of all its content.
