@@ -20,4 +20,4 @@ It outputs JSON.
 Code style has been checked with rubocop and documentation produced by rdoc.
 
 The tests directory contains a few example ruby test scripts that act on test data 
-in the testdata directory rpoducing results for JSON and MongoDB.
+in the testdata directory poducing results for JSON and MongoDB.
