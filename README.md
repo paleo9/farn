@@ -1,5 +1,9 @@
 farn
 ====
+# ARCHIVED 2023
+This repository was for a web scraping project using ruby. The site that it was 
+designed to examine will have changed its html long ago. I am keeping it as a read-only 
+archive as an aide memoir for ruby syntax. 
 
 Farn files are pretty big, thousands of lines long. These scripts help to extract 
 the few dozen lines that are of interest.
